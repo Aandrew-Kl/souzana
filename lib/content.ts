@@ -47,7 +47,7 @@ export type PrivacySection = {
 }
 
 export const site = {
-  name: "Σουζάνα Κλημεντίδη",
+  name: "Souzana Klimentidi Law Firm",
   city: "Αθήνα",
   url: "https://www.souzana-klimentidi.gr",
   nav: [
@@ -63,7 +63,7 @@ export const site = {
     email: "contact@souzana-klimentidi.gr",
   },
   seo: {
-    title: "Σουζάνα Κλημεντίδη | Δικηγορικό Γραφείο Αθήνα",
+    title: "Souzana Klimentidi Law Firm | Αθήνα",
     description:
       "Νομική υποστήριξη με σαφήνεια, διακριτικότητα και υπεύθυνη επικοινωνία από την πρώτη επαφή.",
   },

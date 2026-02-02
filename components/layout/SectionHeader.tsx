@@ -29,7 +29,14 @@ export default function SectionHeader({
         {title}
       </h2>
       {description ? (
-        <p className="text-base text-muted-foreground sm:text-lg">{description}</p>
+        <p
+          className={cn(
+            "text-base text-muted-foreground leading-relaxed",
+            align === "center" ? "mx-auto max-w-xl" : "max-w-2xl"
+          )}
+        >
+          {description}
+        </p>
       ) : null}
     </div>
   )

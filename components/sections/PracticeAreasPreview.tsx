@@ -34,7 +34,7 @@ export default function PracticeAreasPreview() {
                         {area.shortDescription}
                       </p>
                       <ul className="space-y-2 text-sm text-foreground/80">
-                        {area.bullets.map((bullet) => (
+                        {area.bullets.slice(0, 2).map((bullet) => (
                           <li key={bullet} className="flex items-start gap-2">
                             <span className="mt-1 size-1.5 rounded-full bg-accent" />
                             <span>{bullet}</span>

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { posts } from "@/lib/content"
 import { formatDate } from "@/lib/format"
@@ -29,15 +28,12 @@ export default function InsightsFilters() {
             </h3>
             <p className="text-sm text-muted-foreground">{post.excerpt}</p>
           </div>
-          <div className="flex items-center justify-between">
-            <Badge variant="outline">Insights</Badge>
-            <Link
-              href={`/insights/${post.slug}`}
-              className="text-sm font-semibold text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:decoration-accent"
-            >
-              Διαβάστε →
-            </Link>
-          </div>
+          <Link
+            href={`/insights/${post.slug}`}
+            className="text-sm font-semibold text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:decoration-accent"
+          >
+            Διαβάστε →
+          </Link>
         </Card>
       ))}
     </div>
