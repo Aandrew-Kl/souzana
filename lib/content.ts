@@ -1,4 +1,5 @@
 import type { IconName } from "@/lib/icons"
+import { withBasePath } from "@/lib/base-path"
 
 export type ContentImage = {
   src: string
@@ -87,7 +88,7 @@ export const home = {
     trustLine:
       "Σαφής εκτίμηση υπόθεσης και υπεύθυνη επικοινωνία από την πρώτη επαφή.",
     image: {
-      src: "/images/hero.jpg",
+      src: withBasePath("/images/hero.jpg"),
       alt: "Διακριτικό γραφειακό περιβάλλον με νομικές λεπτομέρειες",
     },
   },
@@ -98,7 +99,7 @@ export const home = {
     ctaLabel: "Δείτε όλους τους τομείς",
     ctaHref: "/practice-areas",
     image: {
-      src: "/images/practice-1.jpg",
+      src: withBasePath("/images/practice-1.jpg"),
       alt: "Διακριτική εικόνα δικαστικού χώρου",
     },
   },
@@ -213,7 +214,7 @@ export const teamMembers: TeamMember[] = [
       "Ελληνικά, Αγγλικά",
     ],
     image: {
-      src: "/images/team-1.jpg",
+      src: withBasePath("/images/team-1.jpg"),
       alt: "Πορτρέτο της Σουζάνα Κλημεντίδη",
     },
   },
@@ -222,7 +223,7 @@ export const teamMembers: TeamMember[] = [
     title: "Συνεργάτης",
     bullets: ["Ακίνητα & μισθώσεις", "Συμβάσεις", "Ελληνικά, Αγγλικά"],
     image: {
-      src: "/images/team-2.jpg",
+      src: withBasePath("/images/team-2.jpg"),
       alt: "Προσωρινή εικόνα συνεργάτη",
     },
   },
@@ -231,7 +232,7 @@ export const teamMembers: TeamMember[] = [
     title: "Συνεργάτιδα",
     bullets: ["Εργατικό δίκαιο", "Εσωτερικές πολιτικές", "Ελληνικά, Αγγλικά"],
     image: {
-      src: "/images/team-3.jpg",
+      src: withBasePath("/images/team-3.jpg"),
       alt: "Προσωρινή εικόνα συνεργάτη",
     },
   },
@@ -240,7 +241,7 @@ export const teamMembers: TeamMember[] = [
     title: "Συνεργάτης",
     bullets: ["Αστικό δίκαιο", "Διαφορές", "Ελληνικά, Αγγλικά"],
     image: {
-      src: "/images/team-4.jpg",
+      src: withBasePath("/images/team-4.jpg"),
       alt: "Προσωρινή εικόνα συνεργάτη",
     },
   },
@@ -255,7 +256,7 @@ export const posts: Post[] = [
     excerpt:
       "Τρία σημεία που μειώνουν παρερμηνείες και ενισχύουν τη σαφήνεια.",
     image: {
-      src: "/images/insights-1.jpg",
+      src: withBasePath("/images/insights-1.jpg"),
       alt: "Σημειώσεις πάνω σε νομικά έγγραφα",
     },
     content: [
@@ -290,7 +291,7 @@ export const posts: Post[] = [
     category: "Ακίνητα",
     excerpt: "Οι όροι που επηρεάζουν κόστος, διάρκεια και ευελιξία.",
     image: {
-      src: "/images/insights-2.jpg",
+      src: withBasePath("/images/insights-2.jpg"),
       alt: "Σύγχρονο επαγγελματικό κτήριο",
     },
     content: [
@@ -320,7 +321,7 @@ export const posts: Post[] = [
     category: "Εργατικό",
     excerpt: "Σύντομος οδηγός για ψύχραιμη αξιολόγηση και σωστή προετοιμασία.",
     image: {
-      src: "/images/insights-3.jpg",
+      src: withBasePath("/images/insights-3.jpg"),
       alt: "Συνάντηση σε γραφείο",
     },
     content: [
@@ -379,7 +380,7 @@ export const pages = {
     consentText: "Με την αποστολή συμφωνείτε με την",
     successMessage: "Λάβαμε το μήνυμά σας. Θα επικοινωνήσουμε σύντομα.",
     officeImage: {
-      src: "/images/office.jpg",
+      src: withBasePath("/images/office.jpg"),
       alt: "Αίθουσα συναντήσεων του γραφείου",
     },
   },

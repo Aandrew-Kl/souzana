@@ -1,14 +1,20 @@
 /** @type {import('next').NextConfig} */
-const isPages = process.env.GITHUB_PAGES === "true"
+const isGhPages =
+  process.env.GITHUB_PAGES === "true" || process.env.GITHUB_PAGES === "1"
+const repo = "souzana"
+const basePath = isGhPages ? `/${repo}` : ""
 
 const nextConfig = {
   output: "export",
   trailingSlash: true,
+  basePath,
+  assetPrefix: basePath,
   images: {
     unoptimized: true,
   },
-  basePath: isPages ? "/souzana" : "",
-  assetPrefix: isPages ? "/souzana/" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 }
 
 module.exports = nextConfig
