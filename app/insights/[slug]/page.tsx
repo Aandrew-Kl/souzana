@@ -5,7 +5,7 @@ import { notFound } from "next/navigation"
 import Container from "@/components/layout/Container"
 import { Card } from "@/components/ui/card"
 import Prose from "@/components/typography/Prose"
-import { posts } from "@/lib/content"
+import { pages, posts } from "@/lib/content"
 import { estimateReadingTime, formatDate, slugify } from "@/lib/format"
 
 const buildToc = (content: typeof posts[number]["content"]) =>
@@ -103,21 +103,12 @@ export default function InsightDetail({ params }: { params: { slug: string } }) 
                     </ul>
                   )
                 }
-                if (block.type === "quote") {
-                  return (
-                    <blockquote key={block.text + index}>
-                      {block.text}
-                      {block.attribution ? (
-                        <footer className="mt-2 text-sm text-muted-foreground">
-                          — {block.attribution}
-                        </footer>
-                      ) : null}
-                    </blockquote>
-                  )
-                }
                 return null
               })}
             </Prose>
+            <p className="mt-10 text-sm text-muted-foreground">
+              {pages.insights.note}
+            </p>
           </article>
           <aside className="space-y-6">
             <Card className="gap-4">
@@ -140,7 +131,7 @@ export default function InsightDetail({ params }: { params: { slug: string } }) 
             </Card>
             <Card className="gap-4">
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                Σχετικά άρθρα
+                {pages.insights.relatedLabel}
               </div>
               <div className="space-y-3 text-sm">
                 {related.map((item) => (

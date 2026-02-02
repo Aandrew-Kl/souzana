@@ -4,7 +4,7 @@ import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { teamMembers } from "@/lib/content"
+import { home, teamMembers } from "@/lib/content"
 
 export default function TeamPreview() {
   return (
@@ -12,9 +12,9 @@ export default function TeamPreview() {
       <Container>
         <div className="space-y-12">
           <SectionHeader
-            eyebrow="Ομάδα"
-            title="Έμπειροι συνεργάτες με κοινή μεθοδολογία"
-            description="Συνδυάζουμε εμπειρία σε συναλλαγές, ακίνητα και συμμόρφωση με πρακτική προσέγγιση."
+            eyebrow={home.teamPreview.eyebrow}
+            title={home.teamPreview.title}
+            description={home.teamPreview.description}
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {teamMembers.slice(0, 3).map((member) => (
@@ -33,15 +33,22 @@ export default function TeamPreview() {
                     {member.name}
                   </h3>
                   <p className="text-sm text-muted-foreground">{member.title}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {member.bioShort}
-                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {member.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-1 size-1.5 rounded-full bg-accent" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Card>
             ))}
           </div>
           <Button asChild variant="outline" className="h-11">
-            <Link href="/team">Γνωρίστε την ομάδα</Link>
+            <Link href={home.teamPreview.ctaHref}>
+              {home.teamPreview.ctaLabel}
+            </Link>
           </Button>
         </div>
       </Container>

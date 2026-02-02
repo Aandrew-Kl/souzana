@@ -2,11 +2,12 @@ import type { Metadata } from "next"
 import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import InsightsFilters from "@/components/insights/InsightsFilters"
+import { pages } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Σύντομες αναλύσεις και πρακτικές σημειώσεις για ζητήματα εταιρικού δικαίου, ακινήτων και συμμόρφωσης.",
+    "Σύντομες σημειώσεις για κρίσιμα νομικά θέματα με καθαρή, πρακτική γλώσσα.",
 }
 
 export default function InsightsPage() {
@@ -15,9 +16,9 @@ export default function InsightsPage() {
       <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
         <Container>
           <SectionHeader
-            eyebrow="Insights"
-            title="Καθαρή νομική σκέψη, χωρίς περιττό θόρυβο"
-            description="Επιλεγμένες σημειώσεις που βοηθούν στη λήψη αποφάσεων με πρακτικό τρόπο."
+            eyebrow={pages.insights.eyebrow}
+            title={pages.insights.title}
+            description={pages.insights.description}
           />
         </Container>
       </section>

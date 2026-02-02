@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { practiceAreas } from "@/lib/content"
+import { pages, practiceAreas, site } from "@/lib/content"
 
 const initialState = {
   fullName: "",
@@ -157,7 +157,7 @@ export default function ContactForm() {
             aria-describedby={errors.consent ? "consent-error" : undefined}
           />
           <Label htmlFor="consent" className="text-sm text-muted-foreground">
-            Συμφωνώ με την επεξεργασία των προσωπικών μου δεδομένων σύμφωνα με την
+            {pages.contact.consentText}
             <Link href="/privacy" className="ml-1 underline underline-offset-4">
               Πολιτική Απορρήτου
             </Link>
@@ -176,11 +176,11 @@ export default function ContactForm() {
         </Button>
         {status === "success" ? (
           <p className="text-sm text-foreground">
-            Ευχαριστούμε. Θα επικοινωνήσουμε εντός 1-2 εργάσιμων ημερών.
+            {pages.contact.successMessage}
           </p>
         ) : (
           <p className="text-xs text-muted-foreground">
-            Η αποστολή μηνύματος δεν δημιουργεί σχέση εντολέα-δικηγόρου.
+            {site.legal.message}
           </p>
         )}
       </div>

@@ -4,14 +4,13 @@ import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { practiceAreas } from "@/lib/content"
+import { pages, practiceAreas, site } from "@/lib/content"
 import { iconMap } from "@/lib/icons"
-import { site } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Τομείς Δικαίου",
+  title: "Τομείς",
   description:
-    "Οι βασικοί τομείς εξειδίκευσης του γραφείου μας: εταιρικό, ακίνητα, εργατικό, διαφορές και συμμόρφωση.",
+    "Συνοπτική παρουσίαση των βασικών τομέων υποστήριξης με σαφή, πρακτική προσέγγιση.",
 }
 
 export default function PracticeAreasPage() {
@@ -20,9 +19,9 @@ export default function PracticeAreasPage() {
       <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
         <Container>
           <SectionHeader
-            eyebrow="Τομείς Δικαίου"
-            title="Εξειδίκευση με σαφή στρατηγική"
-            description="Η ομάδα μας καλύπτει επιλεγμένους τομείς με έμφαση στην ποιότητα και τη συνέπεια."
+            eyebrow={pages.practice.eyebrow}
+            title={pages.practice.title}
+            description={pages.practice.description}
           />
         </Container>
       </section>
@@ -60,17 +59,17 @@ export default function PracticeAreasPage() {
         <Container className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-border/70 bg-card p-10 md:flex-row md:items-center">
           <div className="space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Συνεργασία
+              {site.city}
             </p>
             <h2 className="text-2xl font-semibold font-serif">
-              Χτίζουμε σταθερές σχέσεις εμπιστοσύνης
+              {pages.practice.ctaTitle}
             </h2>
             <p className="text-sm text-muted-foreground">
-              {site.name} · {site.location}
+              {pages.practice.ctaDescription}
             </p>
           </div>
           <Button asChild size="lg">
-            <Link href="/contact">Προγραμματίστε συνάντηση</Link>
+            <Link href={pages.practice.ctaHref}>{pages.practice.ctaLabel}</Link>
           </Button>
         </Container>
       </section>

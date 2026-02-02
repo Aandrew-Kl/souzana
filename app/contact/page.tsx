@@ -4,12 +4,12 @@ import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import ContactForm from "@/components/forms/ContactForm"
 import { Button } from "@/components/ui/button"
-import { site } from "@/lib/site"
+import { pages, site } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Επικοινωνία",
   description:
-    "Επικοινωνήστε με το γραφείο μας για μια πρώτη αξιολόγηση με εχεμύθεια.",
+    "Επικοινωνήστε για μια σύντομη αρχική αξιολόγηση με σαφή πλαίσιο.",
 }
 
 export default function ContactPage() {
@@ -18,9 +18,9 @@ export default function ContactPage() {
       <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
         <Container>
           <SectionHeader
-            eyebrow="Επικοινωνία"
-            title="Ας οργανώσουμε μια πρώτη, διακριτική συζήτηση"
-            description="Παρακαλούμε συμπληρώστε τη φόρμα και θα επικοινωνήσουμε σύντομα."
+            eyebrow={pages.contact.eyebrow}
+            title={pages.contact.title}
+            description={pages.contact.description}
           />
         </Container>
       </section>
@@ -32,8 +32,8 @@ export default function ContactPage() {
           <div className="space-y-8">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border/70">
               <Image
-                src="/images/office.jpg"
-                alt="Αίθουσα συναντήσεων του γραφείου στην Αθήνα"
+                src={pages.contact.officeImage.src}
+                alt={pages.contact.officeImage.alt}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 35vw, 90vw"
@@ -44,13 +44,13 @@ export default function ContactPage() {
                 Γραφείο
               </p>
               <h3 className="mt-3 text-2xl font-semibold font-serif">
-                {site.location}
+                {site.city}
               </h3>
               <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <p>{site.address}</p>
-                <p>{site.hours}</p>
-                <p>{site.phone}</p>
-                <p>{site.email}</p>
+                <p>{site.contact.address}</p>
+                <p>{site.contact.hours}</p>
+                <p>{site.contact.phone}</p>
+                <p>{site.contact.email}</p>
               </div>
               <div className="mt-6 rounded-2xl border border-dashed border-border/80 bg-muted px-6 py-10 text-center text-xs text-muted-foreground">
                 Χάρτης περιοχής (placeholder)
@@ -58,21 +58,21 @@ export default function ContactPage() {
             </div>
             <div className="rounded-3xl border border-border/70 bg-card p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                Ραντεβού
+                Επικοινωνία
               </p>
               <h3 className="mt-3 text-xl font-semibold font-serif">
-                Κλείστε συμβουλευτική συνάντηση
+                Κλείστε σύντομη συνάντηση
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                Προτείνουμε σύντομη τηλεφωνική κλήση 15’ πριν από το πρώτο ραντεβού.
+                Επιβεβαιώνουμε χρόνο και πλαίσιο μέσα από απλή ανταλλαγή
+                πληροφοριών.
               </p>
               <Button className="mt-6" size="lg">
                 Κλείστε συνάντηση
               </Button>
             </div>
             <p className="text-xs text-muted-foreground">
-              Η αποστολή μηνύματος δεν δημιουργεί σχέση εντολέα-δικηγόρου. Οι
-              πληροφορίες που αποστέλλονται μέσω της φόρμας παραμένουν εμπιστευτικές.
+              {site.legal.message}
             </p>
           </div>
         </Container>

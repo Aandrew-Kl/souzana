@@ -4,7 +4,7 @@ import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { practiceAreas } from "@/lib/content"
+import { home, practiceAreas } from "@/lib/content"
 import { iconMap } from "@/lib/icons"
 
 export default function PracticeAreasPreview() {
@@ -14,12 +14,12 @@ export default function PracticeAreasPreview() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="order-2 space-y-12 lg:order-1">
             <SectionHeader
-              eyebrow="Τομείς"
-              title="Εξειδίκευση με βάθος"
-              description="Επικεντρωνόμαστε σε τομείς όπου η ακρίβεια και η πρόληψη ρίσκου κάνουν τη διαφορά."
+              eyebrow={home.practicePreview.eyebrow}
+              title={home.practicePreview.title}
+              description={home.practicePreview.description}
             />
             <div className="grid gap-6 md:grid-cols-2">
-              {practiceAreas.slice(0, 3).map((area) => {
+              {practiceAreas.slice(0, 4).map((area) => {
                 const Icon = iconMap[area.icon]
                 return (
                   <Card key={area.slug} className="transition-colors">
@@ -47,14 +47,16 @@ export default function PracticeAreasPreview() {
               })}
             </div>
             <Button asChild variant="outline" className="h-11">
-              <Link href="/practice-areas">Όλοι οι τομείς</Link>
+              <Link href={home.practicePreview.ctaHref}>
+                {home.practicePreview.ctaLabel}
+              </Link>
             </Button>
           </div>
           <div className="order-1 lg:order-2">
             <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-border/70">
               <Image
-                src="/images/practice-1.jpg"
-                alt="Αφαιρετική εικόνα δικαστικής αίθουσας"
+                src={home.practicePreview.image.src}
+                alt={home.practicePreview.image.alt}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 32vw, 90vw"

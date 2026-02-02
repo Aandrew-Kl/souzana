@@ -3,12 +3,12 @@ import Image from "next/image"
 import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
-import { teamMembers } from "@/lib/content"
+import { pages, teamMembers } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Η Ομάδα",
+  title: "Ομάδα",
   description:
-    "Γνωρίστε την ομάδα μας: δικηγόροι με εμπειρία σε εταιρικό δίκαιο, ακίνητα, εργατικό και συμμόρφωση.",
+    "Η ομάδα μας προσφέρει προσωπική συνεργασία με σαφή ρόλους και σταθερή επικοινωνία.",
 }
 
 export default function TeamPage() {
@@ -17,9 +17,9 @@ export default function TeamPage() {
       <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
         <Container>
           <SectionHeader
-            eyebrow="Η Ομάδα"
-            title="Δημιουργούμε καθαρές λύσεις με συλλογική εμπειρία"
-            description="Η ομάδα μας συνδυάζει νομική εξειδίκευση και πρακτική σκέψη, με κοινή μεθοδολογία εργασίας."
+            eyebrow={pages.team.eyebrow}
+            title={pages.team.title}
+            description={pages.team.description}
           />
         </Container>
       </section>
@@ -44,17 +44,14 @@ export default function TeamPage() {
                     </h3>
                     <p className="text-sm text-muted-foreground">{member.title}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    {member.bioLong}
-                  </p>
-                  <div className="text-sm text-muted-foreground">
-                    <p className="font-semibold text-foreground">Γλώσσες</p>
-                    <p>{member.languages.join(" · ")}</p>
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    <p className="font-semibold text-foreground">Σπουδές</p>
-                    <p>{member.education.join(" · ")}</p>
-                  </div>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {member.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-1 size-1.5 rounded-full bg-accent" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Card>
             ))}

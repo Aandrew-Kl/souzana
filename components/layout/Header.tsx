@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
-import { navItems, site } from "@/lib/site"
+import { site } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -31,7 +31,7 @@ export default function Header() {
           <span className="font-serif text-lg tracking-tight">{site.name}</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm md:flex" aria-label="Κύρια πλοήγηση">
-          {navItems.map((item) => (
+          {site.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -67,7 +67,7 @@ export default function Header() {
               </SheetTitle>
             </SheetHeader>
             <div className="mt-8 flex flex-col gap-4">
-              {navItems.map((item) => (
+              {site.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

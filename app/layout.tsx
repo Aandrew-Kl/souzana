@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter } from "next/font/google"
-import { site } from "@/lib/site"
+import { site } from "@/lib/content"
 import "./globals.css"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
@@ -19,13 +19,13 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.name,
+    default: site.seo.title,
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  description: site.seo.description,
   openGraph: {
-    title: site.name,
-    description: site.description,
+    title: site.seo.title,
+    description: site.seo.description,
     url: site.url,
     siteName: site.name,
     locale: "el_GR",
@@ -46,13 +46,13 @@ export default function RootLayout({
     areaServed: "Αθήνα, Ελλάδα",
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address,
+      streetAddress: site.contact.address,
       addressLocality: "Αθήνα",
-      postalCode: "106 72",
+      postalCode: "106 74",
       addressCountry: "GR",
     },
-    telephone: site.phone,
-    email: site.email,
+    telephone: site.contact.phone,
+    email: site.contact.email,
   }
 
   return (
