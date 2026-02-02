@@ -1,26 +1,161 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #0b1220;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f7f9;
+  --secondary-foreground: #0b1220;
+  --muted: #f6f7f9;
+  --muted-foreground: #5b6676;
+  --accent: #b08d3b;
+  --accent-foreground: #0b1220;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: #e6e8ec;
+  --input: #e6e8ec;
+  --ring: #0b1220;
+}
+
+.dark {
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #0b1220;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f7f9;
+  --secondary-foreground: #0b1220;
+  --muted: #f6f7f9;
+  --muted-foreground: #5b6676;
+  --accent: #b08d3b;
+  --accent-foreground: #0b1220;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: #e6e8ec;
+  --input: #e6e8ec;
+  --ring: #0b1220;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  z-index: 50;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  left: 16px;
+}
+
+.prose {
+  @apply text-[1rem] leading-relaxed text-foreground/90;
+}
+
+.prose h2 {
+  @apply mt-12 text-2xl font-semibold tracking-tight text-foreground font-serif;
+}
+
+.prose h3 {
+  @apply mt-10 text-xl font-semibold tracking-tight text-foreground font-serif;
+}
+
+.prose p {
+  @apply mt-6;
+}
+
+.prose ul {
+  @apply mt-6 list-disc space-y-2 pl-6 text-foreground/85;
+}
+
+.prose blockquote {
+  @apply mt-8 border-l-2 border-accent/60 pl-6 text-foreground/80 italic;
+}
+
+.prose a {
+  @apply text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:decoration-accent;
+}
+
+@layer utilities {
+  .surface-glow {
+    background-image: radial-gradient(
+        circle at top left,
+        rgba(176, 141, 59, 0.12),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(11, 18, 32, 0.05),
+        transparent 60%
+      );
+  }
+
+  .grid-fine {
+    background-image: linear-gradient(
+        to right,
+        rgba(230, 232, 236, 0.6) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(230, 232, 236, 0.6) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
 }
