@@ -36,47 +36,47 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #0b0f14;
-  --foreground: #f4f0e8;
-  --card: #0f141c;
-  --card-foreground: #f4f0e8;
-  --popover: #0f141c;
-  --popover-foreground: #f4f0e8;
-  --primary: #b08d3b;
-  --primary-foreground: #0b0f14;
-  --secondary: #131a26;
-  --secondary-foreground: #f4f0e8;
-  --muted: #111825;
-  --muted-foreground: #c2c8d4;
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #0b1220;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f7f9;
+  --secondary-foreground: #0b1220;
+  --muted: #f6f7f9;
+  --muted-foreground: #5b6676;
   --accent: #b08d3b;
-  --accent-foreground: #0b0f14;
-  --destructive: #d45a4b;
-  --destructive-foreground: #fef2f2;
-  --border: #1c2636;
-  --input: #1c2636;
-  --ring: #b08d3b;
+  --accent-foreground: #0b1220;
+  --destructive: #c2413a;
+  --destructive-foreground: #ffffff;
+  --border: #e6e8ec;
+  --input: #e6e8ec;
+  --ring: #0b1220;
 }
 
 .dark {
-  --background: #0b0f14;
-  --foreground: #f4f0e8;
-  --card: #0f141c;
-  --card-foreground: #f4f0e8;
-  --popover: #0f141c;
-  --popover-foreground: #f4f0e8;
-  --primary: #b08d3b;
-  --primary-foreground: #0b0f14;
-  --secondary: #131a26;
-  --secondary-foreground: #f4f0e8;
-  --muted: #111825;
-  --muted-foreground: #c2c8d4;
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #0b1220;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f7f9;
+  --secondary-foreground: #0b1220;
+  --muted: #f6f7f9;
+  --muted-foreground: #5b6676;
   --accent: #b08d3b;
-  --accent-foreground: #0b0f14;
-  --destructive: #d45a4b;
-  --destructive-foreground: #fef2f2;
-  --border: #1c2636;
-  --input: #1c2636;
-  --ring: #b08d3b;
+  --accent-foreground: #0b1220;
+  --destructive: #c2413a;
+  --destructive-foreground: #ffffff;
+  --border: #e6e8ec;
+  --input: #e6e8ec;
+  --ring: #0b1220;
 }
 
 @layer base {
