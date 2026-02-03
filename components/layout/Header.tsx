@@ -25,10 +25,18 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-[1200px] items-center justify-between px-6">
-        <Link href="/" className="text-sm font-semibold tracking-wide">
-          <span className="font-serif text-lg tracking-tight">{site.name}</span>
+    <header className="sticky top-0 z-40 border-b border-accent/30 bg-background/90 backdrop-blur">
+      <div className="mx-auto flex h-24 w-full max-w-[1200px] items-center justify-between px-6">
+        <Link
+          href="/"
+          className="flex flex-col gap-1 text-base font-semibold tracking-[0.02em] leading-none"
+        >
+          <span className="font-serif text-4xl tracking-[0.08em] sm:text-5xl">
+            {site.wordmark.title}
+          </span>
+          <span className="text-[0.6rem] uppercase tracking-[0.5em] text-muted-foreground">
+            {site.wordmark.subtitle}
+          </span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm md:flex" aria-label="Κύρια πλοήγηση">
           {site.nav.map((item) => (

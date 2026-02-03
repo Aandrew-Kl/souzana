@@ -61,7 +61,7 @@ export default function RootLayout({
         className={`${inter.variable} ${cormorant.variable} bg-background text-foreground font-sans antialiased`}
       >
         <a href="#main-content" className="skip-link">
-          Skip to content
+          Μετάβαση στο περιεχόμενο
         </a>
         <Header />
         <main id="main-content" className="min-h-screen">

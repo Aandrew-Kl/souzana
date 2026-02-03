@@ -6,7 +6,7 @@ import Container from "@/components/layout/Container"
 import { Card } from "@/components/ui/card"
 import Prose from "@/components/typography/Prose"
 import { pages, posts } from "@/lib/content"
-import { estimateReadingTime, formatDate, slugify } from "@/lib/format"
+import { formatDate, slugify } from "@/lib/format"
 
 const buildToc = (content: typeof posts[number]["content"]) =>
   content
@@ -49,24 +49,22 @@ export default function InsightDetail({ params }: { params: { slug: string } }) 
 
   return (
     <div className="pb-24">
-      <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
+      <section className="border-b border-border/60 bg-muted py-24 sm:py-32">
         <Container>
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              {post.category}
+              {pages.insights.eyebrow}
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl font-serif">
               {post.title}
             </h1>
-            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-              <span>{formatDate(post.date)}</span>
-              <span>•</span>
-              <span>{estimateReadingTime(post.content)}</span>
+            <div className="text-sm text-muted-foreground">
+              {formatDate(post.date)}
             </div>
             <p className="text-base text-muted-foreground max-w-2xl">
               {post.excerpt}
             </p>
-            <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-3xl border border-border/70">
+            <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-3xl border border-border/60">
               <Image
                 src={post.image.src}
                 alt={post.image.alt}
@@ -78,7 +76,7 @@ export default function InsightDetail({ params }: { params: { slug: string } }) 
           </div>
         </Container>
       </section>
-      <section className="py-16 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container className="grid gap-12 lg:grid-cols-[1fr_280px]">
           <article>
             <Prose>

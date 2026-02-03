@@ -6,17 +6,20 @@ import { home } from "@/lib/content"
 
 export default function Hero() {
   return (
-    <section className="border-b border-border/60 bg-background">
-      <Container className="py-16 sm:py-24">
+    <section className="border-b border-accent/20 bg-background">
+      <Container className="py-24 sm:py-32">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div className="space-y-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              {home.hero.eyebrow}
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-serif">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-muted-foreground">
+                {home.hero.eyebrow}
+              </p>
+              <div className="hairline-gold w-28" />
+            </div>
+            <h1 className="text-4xl font-semibold leading-[1.1] tracking-[0.02em] text-foreground sm:text-5xl lg:text-6xl font-serif">
               {home.hero.title}
             </h1>
-            <p className="text-lg text-muted-foreground sm:text-xl">
+            <p className="text-base text-muted-foreground sm:text-lg max-w-xl">
               {home.hero.subtitle}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -31,19 +34,19 @@ export default function Hero() {
                 </Link>
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground max-w-xl">
               {home.hero.trustLine}
             </p>
           </div>
-          <div className="relative hidden lg:block">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/70">
+          <div className="relative">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-border/50">
               <Image
                 src={home.hero.image.src}
                 alt={home.hero.image.alt}
                 fill
                 priority
                 className="object-cover"
-                sizes="(min-width: 1024px) 38vw, 0px"
+                sizes="(min-width: 1024px) 40vw, 90vw"
               />
             </div>
           </div>

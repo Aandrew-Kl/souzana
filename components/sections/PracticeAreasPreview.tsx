@@ -9,10 +9,10 @@ import { iconMap } from "@/lib/icons"
 
 export default function PracticeAreasPreview() {
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-24 sm:py-32">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="order-2 space-y-12 lg:order-1">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="order-2 space-y-10 lg:order-1">
             <SectionHeader
               eyebrow={home.practicePreview.eyebrow}
               title={home.practicePreview.title}
@@ -24,7 +24,7 @@ export default function PracticeAreasPreview() {
                 return (
                   <Card key={area.slug} className="transition-colors">
                     <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                      <span className="inline-flex size-9 items-center justify-center rounded-full border border-border/70 bg-background">
+                      <span className="inline-flex size-9 items-center justify-center rounded-full border border-border/50 bg-muted">
                         <Icon className="size-4 text-accent" />
                       </span>
                       {area.title}
@@ -53,7 +53,7 @@ export default function PracticeAreasPreview() {
             </Button>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-border/70">
+            <div className="relative aspect-video overflow-hidden rounded-3xl border border-border/50">
               <Image
                 src={home.practicePreview.image.src}
                 alt={home.practicePreview.image.alt}

@@ -4,21 +4,38 @@ import { site } from "@/lib/content"
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/70 bg-background">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
+    <footer className="border-t border-accent/30 bg-background">
+      <Container className="grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr]">
         <div className="space-y-4">
-          <p className="font-serif text-lg">{site.name}</p>
+          <div className="space-y-1">
+            <p className="font-serif text-2xl tracking-[0.06em] sm:text-3xl">
+              {site.wordmark.title}
+            </p>
+            <p className="text-[0.65rem] uppercase tracking-[0.5em] text-muted-foreground">
+              {site.wordmark.subtitle}
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground">{site.seo.description}</p>
         </div>
         <div className="space-y-3 text-sm">
           <p className="font-semibold text-foreground">Επικοινωνία</p>
           <p className="text-muted-foreground">{site.contact.address}</p>
           <p className="text-muted-foreground">{site.contact.hours}</p>
-          <p className="text-muted-foreground">{site.contact.phone}</p>
-          <p className="text-muted-foreground">{site.contact.email}</p>
+          <a
+            href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {site.contact.phone}
+          </a>
+          <a
+            href={`mailto:${site.contact.email}`}
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {site.contact.email}
+          </a>
         </div>
         <div className="space-y-3 text-sm">
-          <p className="font-semibold text-foreground">Γρήγοροι σύνδεσμοι</p>
+          <p className="font-semibold text-foreground">Σύνδεσμοι</p>
           <div className="flex flex-col gap-2 text-muted-foreground">
             {site.nav.map((item) => (
               <Link
@@ -33,14 +50,11 @@ export default function Footer() {
               Πολιτική Απορρήτου
             </Link>
           </div>
-        </div>
-        <div className="space-y-3 text-sm">
-          <p className="font-semibold text-foreground">Νομικές επισημάνσεις</p>
-          {site.legal.footer.map((line) => (
-            <p key={line} className="text-muted-foreground">
-              {line}
-            </p>
-          ))}
+          <div className="mt-6 space-y-2 text-xs text-muted-foreground">
+            {site.legal.footer.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
         </div>
       </Container>
       <Container className="border-t border-border/60 py-6 text-xs text-muted-foreground">

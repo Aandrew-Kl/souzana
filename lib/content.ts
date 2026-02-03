@@ -23,7 +23,8 @@ export type TeamMember = {
   name: string
   title: string
   bullets: string[]
-  image: ContentImage
+  initials: string
+  image?: ContentImage
 }
 
 export type PostBlock =
@@ -46,14 +47,53 @@ export type PrivacySection = {
   items: string[]
 }
 
+export type MediaItem = {
+  title: string
+  outlet: string
+  date: string
+  format: "Συνέντευξη" | "Άρθρο" | "Βίντεο"
+  href: string
+  description: string
+}
+
+export type MediaSection = {
+  title: string
+  description?: string
+  items: MediaItem[]
+}
+
+export type ProfileEntry = {
+  title: string
+  period?: string
+  details: string[]
+}
+
+export type TeamProfile = {
+  eyebrow: string
+  title: string
+  role: string
+  summary: string[]
+  experience: ProfileEntry[]
+  education: ProfileEntry[]
+  languages: string[]
+  skills: string[]
+  links: { label: string; href: string }[]
+  image: ContentImage
+}
+
 export const site = {
-  name: "Souzana Klimentidi Law Firm",
+  name: "Σουζάνα Κλημεντίδη",
+  wordmark: {
+    title: "Σουζάνα Κλημεντίδη",
+    subtitle: "Δικηγορικό Γραφείο",
+  },
   city: "Αθήνα",
   url: "https://www.souzana-klimentidi.gr",
   nav: [
     { href: "/practice-areas", label: "Τομείς" },
-    { href: "/team", label: "Ομάδα" },
-    { href: "/insights", label: "Insights" },
+    { href: "/team", label: "Γραφείο" },
+    { href: "/insights", label: "Άρθρα" },
+    { href: "/media", label: "Μέσα" },
     { href: "/contact", label: "Επικοινωνία" },
   ] satisfies NavItem[],
   contact: {
@@ -63,9 +103,9 @@ export const site = {
     email: "contact@souzana-klimentidi.gr",
   },
   seo: {
-    title: "Souzana Klimentidi Law Firm | Αθήνα",
+    title: "Σουζάνα Κλημεντίδη | Αθήνα",
     description:
-      "Νομική υποστήριξη με σαφήνεια, διακριτικότητα και υπεύθυνη επικοινωνία από την πρώτη επαφή.",
+      "Νομική υποστήριξη με ακρίβεια, διακριτικότητα και σταθερή επικοινωνία.",
   },
   legal: {
     footer: [
@@ -82,48 +122,68 @@ export const home = {
     eyebrow: "ΑΘΗΝΑ",
     title: "Νομική υποστήριξη με σαφήνεια και διακριτικότητα",
     subtitle:
-      "Σύντομη εκτίμηση, καθαρό πλάνο και υπεύθυνη επικοινωνία από την πρώτη επαφή.",
+      "Σύντομη αξιολόγηση, καθαρό πλαίσιο και υπεύθυνη ενημέρωση σε κάθε στάδιο.",
     primaryCta: { label: "Κλείστε συνάντηση", href: "/contact" },
     secondaryCta: { label: "Οι τομείς μας", href: "/practice-areas" },
     trustLine:
-      "Σαφής εκτίμηση υπόθεσης και υπεύθυνη επικοινωνία από την πρώτη επαφή.",
+      "Σαφής αποτύπωση επιλογών και ρίσκου από την πρώτη επαφή.",
     image: {
       src: assetPath("/images/hero.jpg"),
-      alt: "Διακριτικό γραφειακό περιβάλλον με νομικές λεπτομέρειες",
+      alt: "Φωτεινός εσωτερικός χώρος γραφείου",
     },
   },
   practicePreview: {
     eyebrow: "Τομείς",
-    title: "Επιλεγμένοι τομείς με καθαρή προσέγγιση",
-    description: "Σύντομη κάλυψη, σαφή βήματα, πρακτική καθοδήγηση.",
+    title: "Τομείς με ουσιαστική εμπειρία",
+    description: "Εστιασμένη υποστήριξη σε κρίσιμα εταιρικά και ιδιωτικά ζητήματα.",
     ctaLabel: "Δείτε όλους τους τομείς",
     ctaHref: "/practice-areas",
     image: {
       src: assetPath("/images/practice-1.jpg"),
-      alt: "Διακριτική εικόνα δικαστικού χώρου",
+      alt: "Βιβλία και σημειώσεις πάνω σε μαρμάρινο γραφείο",
     },
   },
-  teamPreview: {
-    eyebrow: "Ομάδα",
-    title: "Μικρή ομάδα, προσωπική συνεργασία",
-    description: "Σταθερό σημείο επαφής και υπεύθυνη συνέχεια σε κάθε υπόθεση.",
-    ctaLabel: "Γνωρίστε την ομάδα",
-    ctaHref: "/team",
+  firmPreview: {
+    eyebrow: "Το γραφείο",
+    title: "Διακριτικός χώρος, οργανωμένη υποστήριξη",
+    description:
+      "Έδρα στην Αθήνα, οργανωμένη υποστήριξη και δίκτυο εξειδικευμένων συνεργατών.",
+    bullets: [
+      "Σταθερό πλαίσιο επικοινωνίας και ενημέρωσης.",
+      "Εστίαση στην πρόληψη ρίσκου.",
+      "Συντονισμός ειδικών συνεργατών κατά περίπτωση.",
+    ],
+    images: [
+      {
+        src: assetPath("/images/firm-1.jpg"),
+        alt: "Φωτεινός χώρος συναντήσεων",
+      },
+      {
+        src: assetPath("/images/firm-2.jpg"),
+        alt: "Βιβλία και σημειώσεις πάνω σε πέτρινη επιφάνεια",
+      },
+      {
+        src: assetPath("/images/firm-3.jpg"),
+        alt: "Λεπτομέρεια γραφείου με φυσικό φως",
+      },
+    ],
   },
   trust: {
     eyebrow: "Τρόπος δουλειάς",
-    title: "Σαφής διαδικασία, ήρεμος ρυθμός",
-    description: "Εστιάζουμε στην πρόληψη και στη σαφή επικοινωνία.",
+    title: "Μεθοδική προσέγγιση και συνέπεια",
+    description: "Σαφής αποτύπωση επιλογών και υπεύθυνη επικοινωνία.",
     bullets: [
-      "Σαφής αποτύπωση επιλογών και ρίσκου από νωρίς.",
-      "Έμφαση στην πρόληψη πριν γίνει διαφορά.",
-      "Υπεύθυνη επικοινωνία και τήρηση χρονοδιαγραμμάτων.",
+      "Σαφής αποτύπωση επιλογών και ρίσκου από την αρχή.",
+      "Πρόληψη διαφορών με έμφαση στην τεκμηρίωση.",
+      "Συστηματική ενημέρωση και τήρηση χρονοδιαγραμμάτων.",
     ],
+    ctaLabel: "Δείτε συνεντεύξεις & άρθρα",
+    ctaHref: "/media",
   },
   finalCta: {
     title: "Ας ξεκινήσουμε με μια σύντομη συζήτηση",
     description:
-      "Στείλτε μήνυμα ή κλείστε συνάντηση για να δούμε το επόμενο βήμα.",
+      "Στείλτε μήνυμα για μια πρώτη αξιολόγηση και το επόμενο βήμα.",
     ctaLabel: "Κλείστε συνάντηση",
     ctaHref: "/contact",
   },
@@ -133,7 +193,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     title: "Εταιρικό Δίκαιο & Συμβάσεις",
     shortDescription:
-      "Δομημένες συμβάσεις και καθαροί όροι για καθημερινές και σύνθετες συνεργασίες.",
+      "Σύναψη και έλεγχος συμβάσεων με έμφαση στη σαφήνεια και τη διαχείριση ρίσκου.",
     icon: "Briefcase",
     slug: "corporate-contracts",
     bullets: [
@@ -157,7 +217,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     title: "Εργατικό Δίκαιο",
     shortDescription:
-      "Υποστήριξη σε εργασιακές σχέσεις με καθαρές διαδικασίες και τεκμηρίωση.",
+      "Υποστήριξη σε εργασιακές σχέσεις με έμφαση στη συμμόρφωση και την τεκμηρίωση.",
     icon: "Users",
     slug: "employment",
     bullets: [
@@ -169,7 +229,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     title: "Αστικό Δίκαιο & Διαφορές",
     shortDescription:
-      "Επίλυση διαφορών με έμφαση στην προετοιμασία και στη στρατηγική.",
+      "Στρατηγική διαχείριση διαφορών με προετοιμασία και τεκμηρίωση.",
     icon: "Gavel",
     slug: "civil-disputes",
     bullets: [
@@ -181,7 +241,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     title: "Οικογενειακό Δίκαιο",
     shortDescription:
-      "Διακριτική υποστήριξη σε οικογενειακά ζητήματα με σεβασμό και σαφήνεια.",
+      "Διακριτική υποστήριξη σε ευαίσθητα οικογενειακά ζητήματα.",
     icon: "Handshake",
     slug: "family-law",
     bullets: [
@@ -206,44 +266,26 @@ export const practiceAreas: PracticeArea[] = [
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Σουζάνα Κλημεντίδη",
-    title: "Δικηγόρος",
+    name: "Ναταλία Θεοδώρου",
+    title: "Συνεργάτιδα",
     bullets: [
-      "Εταιρικό δίκαιο & συμβάσεις",
-      "Στρατηγική επίλυση διαφορών",
+      "Εταιρικό & εμπορικό δίκαιο",
+      "Συμβάσεις και εταιρική συμμόρφωση",
       "Ελληνικά, Αγγλικά",
     ],
-    image: {
-      src: assetPath("/images/team-1.jpg"),
-      alt: "Πορτρέτο της Σουζάνα Κλημεντίδη",
-    },
+    initials: "ΝΘ",
   },
   {
-    name: "Ανδρέας Παπαγεωργίου",
-    title: "Συνεργάτης",
-    bullets: ["Ακίνητα & μισθώσεις", "Συμβάσεις", "Ελληνικά, Αγγλικά"],
-    image: {
-      src: assetPath("/images/team-2.jpg"),
-      alt: "Προσωρινή εικόνα συνεργάτη",
-    },
-  },
-  {
-    name: "Μαρία Ιωάννου",
+    name: "Ιωάννα Λύκου",
     title: "Συνεργάτιδα",
-    bullets: ["Εργατικό δίκαιο", "Εσωτερικές πολιτικές", "Ελληνικά, Αγγλικά"],
-    image: {
-      src: assetPath("/images/team-3.jpg"),
-      alt: "Προσωρινή εικόνα συνεργάτη",
-    },
+    bullets: ["Αστικό δίκαιο", "Διαφορές & διαμεσολάβηση", "Ελληνικά, Αγγλικά"],
+    initials: "ΙΛ",
   },
   {
-    name: "Νίκος Λεβέντης",
-    title: "Συνεργάτης",
-    bullets: ["Αστικό δίκαιο", "Διαφορές", "Ελληνικά, Αγγλικά"],
-    image: {
-      src: assetPath("/images/team-4.jpg"),
-      alt: "Προσωρινή εικόνα συνεργάτη",
-    },
+    name: "Ειρήνη Καραλή",
+    title: "Συνεργάτιδα",
+    bullets: ["Ακίνητα", "Μισθώσεις", "Ελληνικά, Αγγλικά"],
+    initials: "ΕΚ",
   },
 ]
 
@@ -257,7 +299,7 @@ export const posts: Post[] = [
       "Τρία σημεία που μειώνουν παρερμηνείες και ενισχύουν τη σαφήνεια.",
     image: {
       src: assetPath("/images/insights-1.jpg"),
-      alt: "Σημειώσεις πάνω σε νομικά έγγραφα",
+      alt: "Βιβλία και σημειώσεις πάνω σε μαρμάρινο γραφείο",
     },
     content: [
       {
@@ -292,7 +334,7 @@ export const posts: Post[] = [
     excerpt: "Οι όροι που επηρεάζουν κόστος, διάρκεια και ευελιξία.",
     image: {
       src: assetPath("/images/insights-2.jpg"),
-      alt: "Σύγχρονο επαγγελματικό κτήριο",
+      alt: "Φωτεινό γραφειακό περιβάλλον με λιτή αισθητική",
     },
     content: [
       {
@@ -322,7 +364,7 @@ export const posts: Post[] = [
     excerpt: "Σύντομος οδηγός για ψύχραιμη αξιολόγηση και σωστή προετοιμασία.",
     image: {
       src: assetPath("/images/insights-3.jpg"),
-      alt: "Συνάντηση σε γραφείο",
+      alt: "Βιβλία και σημειώσεις πάνω σε μαρμάρινο γραφείο",
     },
     content: [
       {
@@ -349,39 +391,125 @@ export const posts: Post[] = [
 export const pages = {
   practice: {
     eyebrow: "Τομείς",
-    title: "Τομείς με καθαρή, πρακτική καθοδήγηση",
+    title: "Τομείς με εξειδίκευση και ουσιαστική υποστήριξη",
     description:
-      "Εστιάζουμε σε ζητήματα όπου η ακρίβεια και η πρόληψη ρίσκου είναι κρίσιμες.",
+      "Εστιάζουμε σε υποθέσεις όπου η ακρίβεια και η πρόληψη ρίσκου είναι κρίσιμες.",
     ctaTitle: "Ας συζητήσουμε το κατάλληλο επόμενο βήμα",
     ctaDescription:
-      "Στείλτε μήνυμα για μια αρχική αξιολόγηση με σαφή πλαίσιο και χρονοδιάγραμμα.",
+      "Στείλτε μήνυμα για μια αρχική αξιολόγηση με σαφές πλαίσιο και χρονοδιάγραμμα.",
     ctaLabel: "Επικοινωνία",
     ctaHref: "/contact",
   },
   team: {
-    eyebrow: "Ομάδα",
-    title: "Προσωπική συνεργασία, καθαρή γραμμή",
-    description:
-      "Μικρή ομάδα με σαφή ρόλους και σταθερό σημείο επαφής.",
+    eyebrow: "Γραφείο",
+    title: "Το γραφείο",
+    description: "Με έδρα την Αθήνα και δίκτυο συνεργατών όπου απαιτείται.",
+    profile: {
+      eyebrow: "Προφίλ",
+      title: "Σουζάνα Κλημεντίδη",
+      role: "Δικηγόρος – Managing Partner",
+      summary: [
+        "Managing Partner του γραφείου με έδρα την Αθήνα.",
+        "Εξειδίκευση σε αφερεγγυότητα, τραπεζικό, ναυτιλιακό και επενδυτικό δίκαιο.",
+        "Νομική σύμβουλος του Οικονομικού Επιμελητηρίου Ελλάδος.",
+        "Συχνές παρεμβάσεις σε τηλεόραση και ραδιόφωνο.",
+      ],
+      experience: [
+        {
+          title: "Δικηγορικό Γραφείο Σουζάνα Κλημεντίδη",
+          period: "08/2014 – σήμερα",
+          details: [
+            "Ναυτιλιακό, εταιρικό, τραπεζικό και διεθνές δίκαιο.",
+            "Υποθέσεις εσωτερικής δικαιοδοσίας.",
+          ],
+        },
+        {
+          title: "Coral Shipping Corp",
+          period: "09/2012 – 08/2014",
+          details: [
+            "Εταιρικό, διεθνές και εμπορικό δίκαιο.",
+            "Ασφάλειες, συμβάσεις, απαιτήσεις και ναυλώσεις.",
+          ],
+        },
+        {
+          title: "D. Tsilivaraki & Partners Boutique Law Firm",
+          period: "01/2008 – 04/2011",
+          details: ["Ενασχόληση με αστικό και ποινικό δίκαιο."],
+        },
+      ],
+      education: [
+        {
+          title: "INSEAD",
+          period: "2021 – 2022",
+          details: [
+            "Executive Education – International Directors Programme (Corporate Governance).",
+          ],
+        },
+        {
+          title: "University of Oxford",
+          period: "2021",
+          details: ["Executive Education – Bank Governance."],
+        },
+        {
+          title: "University of Piraeus",
+          period: "2010 – 2012",
+          details: ["MSc in Shipping."],
+        },
+        {
+          title: "Εθνικό & Καποδιστριακό Πανεπιστήμιο Αθηνών",
+          period: "2004 – 2008",
+          details: ["Πτυχίο Νομικής."],
+        },
+      ],
+      languages: [
+        "Ελληνικά",
+        "Αγγλικά",
+        "Γαλλικά",
+        "Κινέζικα",
+        "Αραβικά",
+      ],
+      skills: [
+        "Αφερεγγυότητα",
+        "Τραπεζικό δίκαιο",
+        "Ναυτιλιακό δίκαιο",
+        "Επενδυτικό δίκαιο",
+      ],
+      links: [
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/souzana-klimentidi-64868662",
+        },
+      ],
+      image: {
+        src: assetPath("/images/team-1.jpg"),
+        alt: "Πορτρέτο της Σουζάνα Κλημεντίδη",
+      },
+    } satisfies TeamProfile,
   },
   insights: {
-    eyebrow: "Insights",
-    title: "Σύντομες σημειώσεις για κρίσιμα νομικά θέματα",
-    description: "Καθαρή γλώσσα, πρακτικά σημεία, χωρίς υπερβολές.",
+    eyebrow: "Άρθρα",
+    title: "Νομικά σημειώματα με πρακτική αξία",
+    description: "Σύντομες αναλύσεις για κρίσιμα νομικά ζητήματα.",
     note:
       "Το παρόν κείμενο είναι ενημερωτικό και δεν συνιστά νομική συμβουλή.",
     relatedLabel: "Σχετικά άρθρα",
   },
+  media: {
+    eyebrow: "Μέσα",
+    title: "Συνεντεύξεις & δημόσιες παρεμβάσεις",
+    description: "Επιλεγμένες εμφανίσεις και κείμενα σε τρίτα μέσα ενημέρωσης.",
+    note: "Οι σύνδεσμοι οδηγούν σε εξωτερικούς ιστότοπους.",
+  },
   contact: {
     eyebrow: "Επικοινωνία",
-    title: "Στείλτε μας το θέμα σας συνοπτικά",
+    title: "Επικοινωνήστε για μια πρώτη αξιολόγηση",
     description:
       "Θα απαντήσουμε με σαφή εικόνα για τα επόμενα βήματα.",
     consentText: "Με την αποστολή συμφωνείτε με την",
     successMessage: "Λάβαμε το μήνυμά σας. Θα επικοινωνήσουμε σύντομα.",
     officeImage: {
       src: assetPath("/images/office.jpg"),
-      alt: "Αίθουσα συναντήσεων του γραφείου",
+      alt: "Φωτεινός χώρος γραφείου",
     },
   },
   privacy: {
@@ -424,4 +552,73 @@ export const pages = {
       },
     ] satisfies PrivacySection[],
   },
+}
+
+export const media = {
+  sections: [
+    {
+      title: "Συνεντεύξεις",
+      description: "Συνεντεύξεις σε έντυπα και ψηφιακά μέσα.",
+      items: [
+        {
+          title:
+            "Σουζάνα Κλημεντίδη: «Μπορούμε να μην είμαστε τέλειες, αλλά δικαιούμαστε να διεκδικούμε το καλύτερο»",
+          outlet: "ELLE Greece",
+          date: "2025-10-24",
+          format: "Συνέντευξη",
+          href: "https://www.elle.gr/lifestyle/712042/souzana-klimentidi-mporoume-na-min-eimaste-teleies-alla-dikaioumaste-na-diekdikoume-to-kalutero-gia-ton-eauto-mas",
+          description:
+            "Συνέντευξη στο ELLE.gr με έμφαση στη διαδρομή και τις επαγγελματικές αξίες.",
+        },
+      ],
+    },
+    {
+      title: "Άρθρα & αρθρογραφία",
+      description: "Κείμενα με πρακτικές νομικές επισημάνσεις.",
+      items: [
+        {
+          title: "Ο ηλικιακός ρατσισμός στην Ελλάδα και οι νέοι βουλευτές",
+          outlet: "ATHENS VOICE",
+          date: "2023-07-04",
+          format: "Άρθρο",
+          href: "https://www.athensvoice.gr/epikairotita/politiki-oikonomia/807596/o-ilikiakos-ratsismos-stin-ellada-kai-oi-neoi-vouleutes/",
+          description: "Συνοπτικό κείμενο για κοινωνικά και θεσμικά ζητήματα.",
+        },
+        {
+          title:
+            "Σουζάνα Κλημεντίδη: Δικαστική Συμπαράσταση – Ένας αλληλέγγυος θεσμός του ιδιωτικού δικαίου",
+          outlet: "Dikastiko.gr",
+          date: "2022-07-11",
+          format: "Άρθρο",
+          href: "https://www.dikastiko.gr/rota-ton-dikigoro-sou/soyzana-klimentidi-dikastiki-symparastasi-enas-allileggyos-thesmos-toy-idiotikoy-dikaioy/",
+          description: "Νομική ανάλυση για τον θεσμό της δικαστικής συμπαράστασης.",
+        },
+      ],
+    },
+    {
+      title: "Τηλεόραση & βίντεο",
+      description: "Εμφανίσεις και δηλώσεις σε τηλεοπτικά ή online μέσα.",
+      items: [
+        {
+          title:
+            "Πλειστηριασμός: Ποιοι θεωρούνται ευάλωτοι οφειλέτες – Πώς μπορούν να τον αποτρέψουν",
+          outlet: "MEGA TV",
+          date: "2022-06-16",
+          format: "Βίντεο",
+          href: "https://www.megatv.com/2022/06/16/pleistiriasmos-ti-mporoun-na-kanoun-oi-eyalotoi-polites-gia-na-ton-apotrepsoun/",
+          description:
+            "Τηλεοπτικό απόσπασμα με αναφορά στην προστασία ευάλωτων οφειλετών.",
+        },
+        {
+          title: "Η Σουζάνα Κλημεντίδη για την προστασία της πρώτης κατοικίας",
+          outlet: "Mesogeios TV",
+          date: "2019-12-08",
+          format: "Βίντεο",
+          href: "https://www.mesogeiostv.gr/i-soyzana-klimentidi-gia-tin-prostasi/",
+          description:
+            "Σύντομη παρέμβαση για τις ρυθμίσεις προστασίας της πρώτης κατοικίας.",
+        },
+      ],
+    },
+  ] satisfies MediaSection[],
 }

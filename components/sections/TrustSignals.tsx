@@ -1,10 +1,11 @@
 import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { home } from "@/lib/content"
+import Link from "next/link"
 
 export default function TrustSignals() {
   return (
-    <section className="py-16 sm:py-24 bg-muted">
+    <section className="py-24 sm:py-32 bg-muted/40">
       <Container>
         <div className="space-y-12">
           <SectionHeader
@@ -20,6 +21,12 @@ export default function TrustSignals() {
               </li>
             ))}
           </ul>
+          <Link
+            href={home.trust.ctaHref}
+            className="inline-flex text-sm font-semibold text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:decoration-accent"
+          >
+            {home.trust.ctaLabel}
+          </Link>
         </div>
       </Container>
     </section>

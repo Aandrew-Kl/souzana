@@ -21,11 +21,14 @@ export default function SectionHeader({
       )}
     >
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          {eyebrow}
-        </p>
+        <div className="space-y-3">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+            {eyebrow}
+          </p>
+          <div className="hairline-gold w-24" />
+        </div>
       ) : null}
-      <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl font-serif">
+      <h2 className="text-3xl font-semibold tracking-[0.02em] text-foreground sm:text-4xl font-serif">
         {title}
       </h2>
       {description ? (

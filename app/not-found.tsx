@@ -5,7 +5,7 @@ import Container from "@/components/layout/Container"
 export default function NotFound() {
   return (
     <div className="pb-24">
-      <section className="py-16 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container className="flex flex-col items-start gap-6">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
             404

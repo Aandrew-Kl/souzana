@@ -5,7 +5,15 @@ import { posts } from "@/lib/content"
 export const dynamic = "force-static"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", "/practice-areas", "/team", "/insights", "/contact", "/privacy"]
+  const routes = [
+    "/",
+    "/practice-areas",
+    "/team",
+    "/insights",
+    "/media",
+    "/contact",
+    "/privacy",
+  ]
   const postRoutes = posts.map((post) => `/insights/${post.slug}`)
 
   return [...routes, ...postRoutes].map((route) => ({

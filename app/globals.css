@@ -36,47 +36,47 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #ffffff;
-  --foreground: #0b1220;
-  --card: #ffffff;
-  --card-foreground: #0b1220;
-  --popover: #ffffff;
-  --popover-foreground: #0b1220;
-  --primary: #0b1220;
-  --primary-foreground: #ffffff;
-  --secondary: #f6f7f9;
-  --secondary-foreground: #0b1220;
-  --muted: #f6f7f9;
-  --muted-foreground: #5b6676;
+  --background: #0b0f14;
+  --foreground: #f4f0e8;
+  --card: #0f141c;
+  --card-foreground: #f4f0e8;
+  --popover: #0f141c;
+  --popover-foreground: #f4f0e8;
+  --primary: #b08d3b;
+  --primary-foreground: #0b0f14;
+  --secondary: #131a26;
+  --secondary-foreground: #f4f0e8;
+  --muted: #111825;
+  --muted-foreground: #c2c8d4;
   --accent: #b08d3b;
-  --accent-foreground: #0b1220;
-  --destructive: #dc2626;
+  --accent-foreground: #0b0f14;
+  --destructive: #d45a4b;
   --destructive-foreground: #fef2f2;
-  --border: #e6e8ec;
-  --input: #e6e8ec;
-  --ring: #0b1220;
+  --border: #1c2636;
+  --input: #1c2636;
+  --ring: #b08d3b;
 }
 
 .dark {
-  --background: #ffffff;
-  --foreground: #0b1220;
-  --card: #ffffff;
-  --card-foreground: #0b1220;
-  --popover: #ffffff;
-  --popover-foreground: #0b1220;
-  --primary: #0b1220;
-  --primary-foreground: #ffffff;
-  --secondary: #f6f7f9;
-  --secondary-foreground: #0b1220;
-  --muted: #f6f7f9;
-  --muted-foreground: #5b6676;
+  --background: #0b0f14;
+  --foreground: #f4f0e8;
+  --card: #0f141c;
+  --card-foreground: #f4f0e8;
+  --popover: #0f141c;
+  --popover-foreground: #f4f0e8;
+  --primary: #b08d3b;
+  --primary-foreground: #0b0f14;
+  --secondary: #131a26;
+  --secondary-foreground: #f4f0e8;
+  --muted: #111825;
+  --muted-foreground: #c2c8d4;
   --accent: #b08d3b;
-  --accent-foreground: #0b1220;
-  --destructive: #dc2626;
+  --accent-foreground: #0b0f14;
+  --destructive: #d45a4b;
   --destructive-foreground: #fef2f2;
-  --border: #e6e8ec;
-  --input: #e6e8ec;
-  --ring: #0b1220;
+  --border: #1c2636;
+  --input: #1c2636;
+  --ring: #b08d3b;
 }
 
 @layer base {
@@ -97,8 +97,8 @@
   top: 12px;
   z-index: 50;
   border-radius: 999px;
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--accent);
+  color: var(--accent-foreground);
   padding: 8px 16px;
   font-size: 0.875rem;
 }
@@ -136,26 +136,14 @@
 }
 
 @layer utilities {
-  .surface-glow {
-    background-image: radial-gradient(
-        circle at top left,
-        rgba(176, 141, 59, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 20% 80%,
-        rgba(11, 18, 32, 0.05),
-        transparent 60%
-      );
-  }
-
-  .grid-fine {
-    background-image: linear-gradient(
-        to right,
-        rgba(230, 232, 236, 0.6) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(230, 232, 236, 0.6) 1px, transparent 1px);
-    background-size: 48px 48px;
+  .hairline-gold {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(176, 141, 59, 0) 0%,
+      rgba(176, 141, 59, 0.5) 25%,
+      rgba(176, 141, 59, 0.5) 75%,
+      rgba(176, 141, 59, 0) 100%
+    );
   }
 }

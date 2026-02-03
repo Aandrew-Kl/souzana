@@ -6,9 +6,9 @@ import { home } from "@/lib/content"
 
 export default function FinalCTA() {
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-24 sm:py-32">
       <Container>
-        <div className="rounded-3xl border border-border/70 bg-card p-12 md:p-16">
+        <div className="rounded-3xl border border-border/50 bg-card p-12 md:p-16">
           <SectionHeader
             eyebrow="Επικοινωνία"
             title={home.finalCta.title}

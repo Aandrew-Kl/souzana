@@ -4,14 +4,14 @@ import Prose from "@/components/typography/Prose"
 import { pages } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Πολιτική Απορρήτου",
-  description: "Σύντομη ενημέρωση για την επεξεργασία προσωπικών δεδομένων.",
+  title: pages.privacy.title,
+  description: pages.privacy.intro,
 }
 
 export default function PrivacyPage() {
   return (
     <div className="pb-24">
-      <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
+      <section className="border-b border-border/60 bg-muted py-24 sm:py-32">
         <Container>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl font-serif">
             {pages.privacy.title}
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           </p>
         </Container>
       </section>
-      <section className="py-16 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container>
           <Prose>
             {pages.privacy.sections.map((section) => (

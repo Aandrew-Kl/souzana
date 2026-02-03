@@ -1,20 +1,23 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import Container from "@/components/layout/Container"
 import SectionHeader from "@/components/layout/SectionHeader"
 import { Card } from "@/components/ui/card"
 import { pages, teamMembers } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Ομάδα",
-  description:
-    "Η ομάδα μας προσφέρει προσωπική συνεργασία με σαφή ρόλους και σταθερή επικοινωνία.",
+  title: pages.team.title,
+  description: pages.team.description,
 }
 
 export default function TeamPage() {
+  const members = teamMembers
+  const profile = pages.team.profile
+
   return (
     <div className="pb-24">
-      <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
+      <section className="border-b border-border/60 bg-muted py-24 sm:py-32">
         <Container>
           <SectionHeader
             eyebrow={pages.team.eyebrow}
@@ -23,20 +26,151 @@ export default function TeamPage() {
           />
         </Container>
       </section>
-      <section className="py-16 sm:py-24">
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-2">
-            {teamMembers.map((member) => (
-              <Card key={member.name} className="gap-6">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/70">
-                  <Image
-                    src={member.image.src}
-                    alt={member.image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 40vw, 90vw"
-                  />
+      <section className="py-24 sm:py-32">
+        <Container className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="space-y-6">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60">
+              <Image
+                src={profile.image.src}
+                alt={profile.image.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 40vw, 90vw"
+              />
+            </div>
+          </div>
+          <div className="space-y-6">
+            <Card className="gap-4">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {profile.eyebrow}
+                </p>
+                <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl font-serif">
+                  {profile.title}
+                </h2>
+                <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                  <span>{profile.role}</span>
+                  {profile.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-foreground underline decoration-accent/60 underline-offset-4 transition-colors hover:decoration-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {profile.summary.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-1 size-1.5 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Card>
+            <div className="grid gap-6 md:grid-cols-3">
+              <Card className="h-full">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Εμπειρία
+                </p>
+                <div className="mt-4 space-y-4 text-sm text-muted-foreground">
+                  {profile.experience.map((item) => (
+                    <div key={item.title}>
+                      <p className="font-semibold text-foreground">{item.title}</p>
+                      {item.period ? (
+                        <p className="text-xs text-muted-foreground">{item.period}</p>
+                      ) : null}
+                      <ul className="mt-2 space-y-1">
+                        {item.details.map((detail) => (
+                          <li key={detail}>{detail}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+              <Card className="h-full">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Εκπαίδευση
+                </p>
+                <div className="mt-4 space-y-4 text-sm text-muted-foreground">
+                  {profile.education.map((item) => (
+                    <div key={item.title}>
+                      <p className="font-semibold text-foreground">{item.title}</p>
+                      {item.period ? (
+                        <p className="text-xs text-muted-foreground">{item.period}</p>
+                      ) : null}
+                      <ul className="mt-2 space-y-1">
+                        {item.details.map((detail) => (
+                          <li key={detail}>{detail}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+              <Card className="h-full">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Γλώσσες & Εξειδίκευση
+                </p>
+                <div className="mt-4 space-y-5 text-sm text-muted-foreground">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                      Γλώσσες
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {profile.languages.map((language) => (
+                        <li key={language}>{language}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                      Εξειδίκευση
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {profile.skills.map((skill) => (
+                        <li key={skill}>{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </Container>
+      </section>
+      <section className="py-24 sm:py-32">
+        <Container className="space-y-10">
+          <SectionHeader
+            eyebrow="Δίκτυο συνεργατών"
+            title="Εξειδικευμένοι συνεργάτες ανά αντικείμενο"
+            description="Συντονισμένη υποστήριξη για ειδικά ζητήματα, χωρίς υπερβολές."
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {members.map((member) => (
+              <Card key={member.name} className="gap-6">
+                {member.image ? (
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50">
+                    <Image
+                      src={member.image.src}
+                      alt={member.image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 40vw, 90vw"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-border/50 bg-muted">
+                    <span className="font-serif text-3xl tracking-[0.2em] text-foreground">
+                      {member.initials}
+                    </span>
+                  </div>
+                )}
                 <div className="space-y-3">
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">

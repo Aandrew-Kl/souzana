@@ -8,15 +8,14 @@ import { pages, practiceAreas, site } from "@/lib/content"
 import { iconMap } from "@/lib/icons"
 
 export const metadata: Metadata = {
-  title: "Τομείς",
-  description:
-    "Συνοπτική παρουσίαση των βασικών τομέων υποστήριξης με σαφή, πρακτική προσέγγιση.",
+  title: pages.practice.title,
+  description: pages.practice.description,
 }
 
 export default function PracticeAreasPage() {
   return (
     <div className="pb-24">
-      <section className="border-b border-border/70 bg-muted py-16 sm:py-24">
+      <section className="border-b border-accent/20 bg-muted/40 py-24 sm:py-32">
         <Container>
           <SectionHeader
             eyebrow={pages.practice.eyebrow}
@@ -25,7 +24,7 @@ export default function PracticeAreasPage() {
           />
         </Container>
       </section>
-      <section className="py-16 sm:py-24">
+      <section className="py-24 sm:py-32">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             {practiceAreas.map((area) => {
@@ -33,7 +32,7 @@ export default function PracticeAreasPage() {
               return (
                 <Card key={area.slug} className="gap-6">
                   <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                    <span className="inline-flex size-10 items-center justify-center rounded-full border border-border/70">
+                    <span className="inline-flex size-10 items-center justify-center rounded-full border border-border/50 bg-muted">
                       <Icon className="size-4 text-accent" />
                     </span>
                     {area.title}
@@ -55,8 +54,8 @@ export default function PracticeAreasPage() {
           </div>
         </Container>
       </section>
-      <section className="py-16 sm:py-24">
-        <Container className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-border/70 bg-card p-10 md:flex-row md:items-center">
+      <section className="py-24 sm:py-32">
+        <Container className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-border/60 bg-card p-10 md:flex-row md:items-center">
           <div className="space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
               {site.city}

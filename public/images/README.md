@@ -3,6 +3,9 @@ Drop production photography files here using the exact filenames below.
 Required files:
 - hero.jpg
 - office.jpg
+- firm-1.jpg
+- firm-2.jpg
+- firm-3.jpg
 - team-1.jpg
 - team-2.jpg
 - team-3.jpg

@@ -1,6 +1,6 @@
 import Hero from "@/components/sections/Hero"
 import PracticeAreasPreview from "@/components/sections/PracticeAreasPreview"
-import TeamPreview from "@/components/sections/TeamPreview"
+import FirmPreview from "@/components/sections/FirmPreview"
 import TrustSignals from "@/components/sections/TrustSignals"
 import FinalCTA from "@/components/sections/FinalCTA"
 
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <PracticeAreasPreview />
-      <TeamPreview />
+      <FirmPreview />
       <TrustSignals />
       <FinalCTA />
     </>
