@@ -61,9 +61,11 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground">
-              {site.legal.message}
-            </p>
+            <div className="space-y-2 text-xs text-muted-foreground">
+              {site.legal.footer.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
         </Container>
       </section>

@@ -23,12 +23,13 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }))
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
-}): Metadata {
-  const post = posts.find((item) => item.slug === params.slug)
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const post = posts.find((item) => item.slug === slug)
   if (!post) {
     return { title: "Insight" }
   }
@@ -38,8 +39,9 @@ export function generateMetadata({
   }
 }
 
-export default function InsightDetail({ params }: { params: { slug: string } }) {
-  const post = posts.find((item) => item.slug === params.slug)
+export default async function InsightDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = posts.find((item) => item.slug === slug)
   if (!post) {
     notFound()
   }
