@@ -257,11 +257,7 @@ export const teamMembers: TeamMember[] = [
       "Ελληνικά, Αγγλικά",
     ],
     initials: "ΝΘ",
-    image: {
-      src: assetPath("/images/team-2.jpg"),
-      alt: "Πορτρέτο της Ναταλίας Θεοδώρου",
-    },
-  },
+    
   {
     name: "Ιωάννα Λύκου",
     title: "Συνεργάτιδα",
