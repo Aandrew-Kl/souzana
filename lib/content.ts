@@ -257,7 +257,7 @@ export const teamMembers: TeamMember[] = [
       "Ελληνικά, Αγγλικά",
     ],
     initials: "ΝΘ",
-    
+  },
   {
     name: "Ιωάννα Λύκου",
     title: "Συνεργάτιδα",
