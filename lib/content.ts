@@ -548,45 +548,6 @@ export const pages = {
 export const media = {
   sections: [
     {
-      title: "Συνεντεύξεις",
-      description: "Συνεντεύξεις σε έντυπα και ψηφιακά μέσα.",
-      items: [
-        {
-          title:
-            "Σουζάνα Κλημεντίδη: «Μπορούμε να μην είμαστε τέλειες, αλλά δικαιούμαστε να διεκδικούμε το καλύτερο»",
-          outlet: "ELLE Greece",
-          date: "2025-10-24",
-          format: "Συνέντευξη",
-          href: "https://www.elle.gr/lifestyle/712042/souzana-klimentidi-mporoume-na-min-eimaste-teleies-alla-dikaioumaste-na-diekdikoume-to-kalutero-gia-ton-eauto-mas",
-          description:
-            "Συνέντευξη στο ELLE.gr με έμφαση στη διαδρομή και τις επαγγελματικές αξίες.",
-        },
-      ],
-    },
-    {
-      title: "Άρθρα & αρθρογραφία",
-      description: "Κείμενα με πρακτικές νομικές επισημάνσεις.",
-      items: [
-        {
-          title: "Ο ηλικιακός ρατσισμός στην Ελλάδα και οι νέοι βουλευτές",
-          outlet: "ATHENS VOICE",
-          date: "2023-07-04",
-          format: "Άρθρο",
-          href: "https://www.athensvoice.gr/epikairotita/politiki-oikonomia/807596/o-ilikiakos-ratsismos-stin-ellada-kai-oi-neoi-vouleutes/",
-          description: "Συνοπτικό κείμενο για κοινωνικά και θεσμικά ζητήματα.",
-        },
-        {
-          title:
-            "Σουζάνα Κλημεντίδη: Δικαστική Συμπαράσταση – Ένας αλληλέγγυος θεσμός του ιδιωτικού δικαίου",
-          outlet: "Dikastiko.gr",
-          date: "2022-07-11",
-          format: "Άρθρο",
-          href: "https://www.dikastiko.gr/rota-ton-dikigoro-sou/soyzana-klimentidi-dikastiki-symparastasi-enas-allileggyos-thesmos-toy-idiotikoy-dikaioy/",
-          description: "Νομική ανάλυση για τον θεσμό της δικαστικής συμπαράστασης.",
-        },
-      ],
-    },
-    {
       title: "Τηλεόραση & βίντεο",
       description: "Εμφανίσεις και δηλώσεις σε τηλεοπτικά ή online μέσα.",
       items: [
@@ -608,6 +569,152 @@ export const media = {
           href: "https://www.mesogeiostv.gr/i-soyzana-klimentidi-gia-tin-prostasi/",
           description:
             "Σύντομη παρέμβαση για τις ρυθμίσεις προστασίας της πρώτης κατοικίας.",
+        },
+      ],
+    },
+    {
+      title: "Άρθρα & αρθρογραφία",
+      description: "Κείμενα με πρακτικές νομικές επισημάνσεις.",
+      items: [
+        {
+          title:
+            "Stalking και προστασία της προσωπικότητας: Η νομική αντίκρουση της επίμονης παρακολούθησης",
+          outlet: "Dikastiko.gr",
+          date: "2025-12-01",
+          format: "Άρθρο",
+          href: "https://www.dikastiko.gr/rota-ton-dikigoro-sou/soyzana-klimentidi-stalking-kai-prostasia-tis-prosopikotitas-i-nomiki-antikroysi-tis-epimonis-parakoloythisis/",
+          description:
+            "Νομική ανάλυση για τον θεσμικό πλαίσιο κατά του stalking.",
+        },
+        {
+          title:
+            "Οι παρεπόμενες υποχρεώσεις των συμβάσεων – Η περίπτωση της ποινικής ρήτρας",
+          outlet: "Dikastiko.gr",
+          date: "2023-02-10",
+          format: "Άρθρο",
+          href: "https://www.dikastiko.gr/rota-ton-dikigoro-sou/soyzana-klimentidi-oi-parepomenes-ypochreoseis-ton-symvaseon-i-periptosi-tis-poinikis-ritras/",
+          description:
+            "Ανάλυση για τις παρεπόμενες συμβατικές υποχρεώσεις και την ποινική ρήτρα.",
+        },
+        {
+          title:
+            "Δικαστική Συμπαράσταση – Ένας αλληλέγγυος θεσμός του ιδιωτικού δικαίου",
+          outlet: "Dikastiko.gr",
+          date: "2022-07-11",
+          format: "Άρθρο",
+          href: "https://www.dikastiko.gr/rota-ton-dikigoro-sou/soyzana-klimentidi-dikastiki-symparastasi-enas-allileggyos-thesmos-toy-idiotikoy-dikaioy/",
+          description:
+            "Νομική ανάλυση για τον θεσμό της δικαστικής συμπαράστασης.",
+        },
+        {
+          title:
+            "Πρώτη κατοικία: Υπάρχει λύση για την προστασία των οικονομικά αδύναμων οφειλετών;",
+          outlet: "Enikos.gr",
+          date: "2020-02-10",
+          format: "Άρθρο",
+          href: "https://www.enikos.gr/economy/701457/proti-katoikia-yparchei-lysi-gia-tin-prostasia-ton-oikonomika-ady",
+          description:
+            "Ανάλυση για την προστασία της πρώτης κατοικίας υπό το νέο πτωχευτικό πλαίσιο.",
+        },
+        {
+          title: "Ο ηλικιακός ρατσισμός στην Ελλάδα και οι νέοι βουλευτές",
+          outlet: "ATHENS VOICE",
+          date: "2023-07-04",
+          format: "Άρθρο",
+          href: "https://www.athensvoice.gr/epikairotita/politiki-oikonomia/807596/o-ilikiakos-ratsismos-stin-ellada-kai-oi-neoi-vouleutes/",
+          description: "Συνοπτικό κείμενο για κοινωνικά και θεσμικά ζητήματα.",
+        },
+        {
+          title:
+            "Πλειστηριασμοί: Στο σφυρί η πρώτη κατοικία της μεσαίας τάξης",
+          outlet: "Dikastiko.gr",
+          date: "2022-05-12",
+          format: "Άρθρο",
+          href: "https://www.dikastiko.gr/eidhsh/sto-sfyri-i-proti-katoikia-tis-mesaias-taxis-spiti-dimosion-ypallilon-me-3-anilika-paidia-vgainei-se-pleistiriasmo-i-nomiki-akampsia/",
+          description:
+            "Αναφορά στην νομική ακαμψία και τους πλειστηριασμούς πρώτης κατοικίας.",
+        },
+      ],
+    },
+    {
+      title: "Συνεντεύξεις",
+      description: "Συνεντεύξεις σε έντυπα και ψηφιακά μέσα.",
+      items: [
+        {
+          title:
+            "Σουζάνα Κλημεντίδη: «Μπορούμε να μην είμαστε τέλειες, αλλά δικαιούμαστε να διεκδικούμε το καλύτερο»",
+          outlet: "ELLE Greece",
+          date: "2025-10-24",
+          format: "Συνέντευξη",
+          href: "https://www.elle.gr/lifestyle/712042/souzana-klimentidi-mporoume-na-min-eimaste-teleies-alla-dikaioumaste-na-diekdikoume-to-kalutero-gia-ton-eauto-mas",
+          description:
+            "Συνέντευξη στο ELLE.gr με έμφαση στη διαδρομή και τις επαγγελματικές αξίες.",
+        },
+        {
+          title:
+            "Σουζάνα Κλημεντίδη: Χρειάζεται να διανύσουμε ακόμη πολύ δρόμο για να μάθουμε στις γυναίκες να έχουν αυτοπεποίθηση",
+          outlet: "Fortune Greece",
+          date: "2024-05-24",
+          format: "Συνέντευξη",
+          href: "https://www.fortunegreece.com/interview/souzana-klimentidi-xreiazetai-na-dianisoume-akomi-poli-dromo-gia-na-mathoume-stis-ginaikes-na-exoun-aftopepoithisi/",
+          description:
+            "Συνέντευξη για τη γυναικεία ηγεσία και την αυτοπεποίθηση στον επαγγελματικό χώρο.",
+        },
+        {
+          title:
+            "Σουζάνα Κλημεντίδη: Το ESG πρέπει να συνάδει με το business plan των επιχειρήσεων",
+          outlet: "Fortune Greece",
+          date: "2023-07-08",
+          format: "Συνέντευξη",
+          href: "https://www.fortunegreece.com/interview/souzana-kli%C2%B5entidi-to-esg-prepei-na-sinadei-%C2%B5e-to-business-plan-ton-epixeiriseon/",
+          description:
+            "Συνέντευξη για το ESG, τα soft skills και τον ρόλο τους στη σύγχρονη επιχειρηματικότητα.",
+        },
+      ],
+    },
+    {
+      title: "Podcasts & YouTube",
+      description: "Συμμετοχές σε podcasts και ψηφιακά μέσα.",
+      items: [
+        {
+          title:
+            "Χτύπησε tattoo και ΑΠΟΛΥΘΗΚΕ! ft. Σουζάνα Κλημεντίδη",
+          outlet: "Θα Σας Ειδοποιήσουμε",
+          date: "2025-11-28",
+          format: "Βίντεο",
+          href: "https://www.youtube.com/watch?v=uVdbjyQUHUg",
+          description:
+            "Εργασιακά δικαιώματα, όρια διάκρισης και προστασία ιδιωτικής ζωής στον χώρο εργασίας.",
+        },
+        {
+          title:
+            "Bullying ΤΕΛΟΣ. Έρχονται ΚΑΤΑΓΓΕΛΙΕΣ! ft. Σουζάνα Κλημεντίδη",
+          outlet: "Θα Σας Ειδοποιήσουμε",
+          date: "2025-04-01",
+          format: "Βίντεο",
+          href: "https://open.spotify.com/episode/6kUw0NijhElSN7YV4pQQ3D",
+          description:
+            "Συζήτηση για το εργασιακό bullying και τις νομικές διαστάσεις του.",
+        },
+        {
+          title:
+            "Σουζάνα Κλημεντίδη – Δικηγορικό Γραφείο ΑΑΚ & Συνεργάτες",
+          outlet: "Startupper.gr",
+          date: "2024-08-29",
+          format: "Βίντεο",
+          href: "https://www.youtube.com/watch?v=igy49HIgT5Y",
+          description:
+            "Η Σουζάνα Κλημεντίδη παρουσιάζει το γραφείο και μοιράζεται συμβουλές για startups.",
+        },
+        {
+          title:
+            "Ξεγυμνώνουμε τη Σουζάνα Κλημεντίδη!",
+          outlet: "Θα Σας Ειδοποιήσουμε",
+          date: "2024-06-28",
+          format: "Βίντεο",
+          href: "https://www.youtube.com/watch?v=78mgA6Iefvc",
+          description:
+            "Εργασιακά δικαιώματα, νοοτροπία εταιρειών και η πορεία μιας δικηγόρου.",
         },
       ],
     },

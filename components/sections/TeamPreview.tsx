@@ -17,8 +17,8 @@ export default function TeamPreview() {
           description={home.teamPreview.description}
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50">
+          <Link href="/team" className="group space-y-4 block">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50 transition-shadow group-hover:shadow-md">
               <Image
                 src={profile.image.src}
                 alt={profile.image.alt}
@@ -33,11 +33,11 @@ export default function TeamPreview() {
               </p>
               <p className="text-sm text-muted-foreground">{profile.role}</p>
             </div>
-          </div>
+          </Link>
           {teamMembers.slice(0, 3).map((member) => (
-            <div key={member.name} className="space-y-4">
+            <Link key={member.name} href="/team" className="group space-y-4 block">
               {member.image ? (
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50 transition-shadow group-hover:shadow-md">
                   <Image
                     src={member.image.src}
                     alt={member.image.alt}
@@ -47,7 +47,7 @@ export default function TeamPreview() {
                   />
                 </div>
               ) : (
-                <div className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-border/50 bg-muted">
+                <div className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-border/50 bg-muted transition-shadow group-hover:shadow-md">
                   <span className="font-serif text-3xl tracking-[0.2em] text-foreground">
                     {member.initials}
                   </span>
@@ -59,7 +59,7 @@ export default function TeamPreview() {
                 </p>
                 <p className="text-sm text-muted-foreground">{member.title}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Button asChild variant="outline" className="h-11">
