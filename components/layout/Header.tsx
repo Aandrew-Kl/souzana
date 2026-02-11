@@ -70,20 +70,23 @@ export default function Header() {
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-background">
-            <SheetHeader>
-              <SheetTitle className="text-left font-serif text-lg">
+          <SheetContent
+            side="right"
+            className="w-[86vw] border-l border-border/70 bg-background p-0 sm:max-w-sm"
+          >
+            <SheetHeader className="border-b border-border/70 px-6 pt-6 pb-4">
+              <SheetTitle className="text-left font-serif text-2xl tracking-[0.02em]">
                 Πλοήγηση
               </SheetTitle>
             </SheetHeader>
-            <div className="mt-8 flex flex-col gap-4">
+            <div className="flex flex-col gap-5 px-6 py-6">
               {site.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={cn(
-                    "text-base text-muted-foreground transition-colors hover:text-foreground",
+                    "text-[2rem] text-muted-foreground transition-colors hover:text-foreground",
                     isActive(item.href) && "text-foreground"
                   )}
                   aria-current={isActive(item.href) ? "page" : undefined}
@@ -91,7 +94,7 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4">
+              <Button asChild className="mt-3 w-full">
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                   Κλείστε συνάντηση
                 </Link>
