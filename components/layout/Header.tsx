@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import { site } from "@/lib/content"
@@ -16,6 +17,7 @@ import {
 
 export default function Header() {
   const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -57,7 +59,7 @@ export default function Header() {
             <Link href="/contact">Κλείστε συνάντηση</Link>
           </Button>
         </nav>
-        <Sheet>
+        <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -79,16 +81,20 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
                   className={cn(
                     "text-base text-muted-foreground transition-colors hover:text-foreground",
                     isActive(item.href) && "text-foreground"
                   )}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
               ))}
               <Button asChild className="mt-4">
-                <Link href="/contact">Κλείστε συνάντηση</Link>
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  Κλείστε συνάντηση
+                </Link>
               </Button>
             </div>
           </SheetContent>
